@@ -14,4 +14,9 @@ aux_source_directory("src/" SRC_LIST)
 project(${EXE_NAME})
 add_executable(${EXE_NAME} ${SRC_LIST})
 
-# Link your libraries here.
+## Link your libraries here.
+
+## CPack Packager
+# set(CPACK_GENERATOR "DEB")
+# set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Borderliner")
+# include(CPack)
