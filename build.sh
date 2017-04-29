@@ -10,17 +10,17 @@ function debug-build() {
 }
 
 function debug-run() {
+  chmod +x build/debug/$EXE_NAME
   ./build/debug/$EXE_NAME
 }
 
 function process-input() {
-  echo $TYPE
   case $TYPE in
-    bd|--debug-build)
+    db|--debug-build)
     debug-build
     shift
     ;;
-    rd|--debug-run)
+    dr|--debug-run)
     debug-run
     shift
     ;;
