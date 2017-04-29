@@ -1,0 +1,18 @@
+project:
+  name: My App
+  exe: app
+  cpp-version: 14
+  git: https://github.com/Borderliner/Cpp-CMake-Template
+  author:
+    name: Borderliner
+    email: hajianpour.mr@gmail.com
+    github: https://github.com/Borderliner
+  version:
+    major: 1
+    minor: 0
+    patch: 0
+    type: SNAPSHOT
+  vendor:
+    id: com.yourcompany
+    name: Your Company
+    url: yourcompany.com
