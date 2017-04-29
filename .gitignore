@@ -1,1 +1,3 @@
-build
+# Ignore your directories from git
+build/debug
+build/release
