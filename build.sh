@@ -32,6 +32,12 @@ function release-run() {
   ./build/release/$EXE_NAME
 }
 
+function clean-build() {
+  echo "Trying to clean the build directory..."
+  rm -rvf build/*
+  echo "Done!"
+}
+
 function process-input() {
   case $TYPE in
     db|--debug-build)
@@ -48,6 +54,10 @@ function process-input() {
     ;;
     rr|--release-run)
     release-run
+    shift
+    ;;
+    c|--clean)
+    clean-build
     shift
     ;;
     *)
