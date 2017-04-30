@@ -26,11 +26,22 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-aux_source_directory("src/project_one/" SRC_LIST)
+if(CMAKE_BUILD_TYPE MATCHES Debug)
+  set(CMAKE_VERBOSE_MAKEFILE 1) # Use 1 for debugging, 0 for release
+  message("CMake Build Type: Debug")
+else()
+  set(CMAKE_VERBOSE_MAKEFILE 0)
+  message("CMake Build Type: Release")
+endif()
 
-add_executable(${APPLICATION_EXE} ${SRC_LIST})
+file(GLOB_RECURSE SOURCE_FILES  "src/*.cpp" "src/*.h" "src/*.hpp")
+file(GLOB_RECURSE TEST_FILES    "test/*.cpp")
+
+include_directories("include/")
+add_executable(${APPLICATION_EXE} ${SOURCE_FILES})
 
 ## Link your libraries here.
+# target_link_libraries()
 
 ## CPack Packager
 # set(CPACK_GENERATOR "DEB")
