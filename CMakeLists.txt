@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 3.0)
 set(APPLICATION_EXE "app" CACHE STRING "Automatically set as parent folder's name")
 set(APPLICATION_NAME "Project Name")
 set(APPLICATION_CODENAME "${APPLICATION_EXE}")
+set(APPLICATION_AUTHOR_NAME "Borderliner")
+set(APPLICATION_AUTHOR_EMAIL "hajianpour.mr@gmail.com")
 set(APPLICATION_COPYRIGHT_YEARS "2017")
 set(APPLICATION_VERSION_MAJOR 1)
 set(APPLICATION_VERSION_MINOR 0)
@@ -34,16 +36,20 @@ else()
   message("CMake Build Type: Release")
 endif()
 
+## Source Files Management
 file(GLOB_RECURSE SOURCE_FILES  "src/*.cpp" "src/*.h" "src/*.hpp")
 file(GLOB_RECURSE TEST_FILES    "test/*.cpp")
 
 include_directories("include/")
 add_executable(${APPLICATION_EXE} ${SOURCE_FILES})
+# add_executable(${APPLICATION_EXE-test ${TEST_FILES})
 
 ## Link your libraries here.
 # target_link_libraries()
 
 ## CPack Packager
 # set(CPACK_GENERATOR "DEB")
-# set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Borderliner")
+# set(CPACK_DEBIAN_PACKAGE_MAINTAINER ${APPLICATION_AUTHOR_NAME})
+# set(CPACK_PACKAGE_VERSION ${APPLICATION_VERSION_STRING})
+# set(CPACK_MONOLITHIC_INSTALL 1) # Single file output
 # include(CPack)
